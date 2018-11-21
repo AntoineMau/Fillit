@@ -6,7 +6,7 @@
 #    By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:30:56 by anmauffr          #+#    #+#              #
-#    Updated: 2018/11/21 21:54:49 by anmauffr         ###   ########.fr        #
+#    Updated: 2018/11/21 22:28:50 by anmauffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,16 +123,13 @@ _ICYAN = $'\033[46m
 _IGREY = $'\033[47m
 
 verif = 0
-LINE = " $(_CYAN)[%3d%%]\t$(_BLUE)%-24s $(_PURPLE)=>$(_BLUE)\t%-24s$(_DEF)\n"
+LINE = " $(_GREEN)[%3d%%]\t$(_DEF)%-24s $(_DEF)👉\t$(_GREEN) %-24s$(_DEF)\n"
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
-	@echo -ne "$(_YELLOW)Compiling :\t$(_BLUE)" $(NAME)
-	@echo -e "$(_DEF)"
-	@echo
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
 	@if [[ $(verif) -eq 0 ]]; then printf "$(_GREEN)$(_DEF)\n";\
