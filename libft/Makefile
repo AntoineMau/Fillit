@@ -6,7 +6,7 @@
 #    By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:30:56 by anmauffr          #+#    #+#              #
-#    Updated: 2018/11/21 20:17:39 by anmauffr         ###   ########.fr        #
+#    Updated: 2018/11/21 21:54:49 by anmauffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,76 +17,68 @@ NAME = libft.a
 
 # Sources names
 SRCS_NAME = ft_atoi.c \
-			ft_bzero.c \
-			ft_isalnum.c \
-			ft_isalpha.c \
-			ft_isascii.c \
-			ft_isdigit.c \
-			ft_isprint.c \
-			ft_memalloc.c \
-			ft_memccpy.c \
-			ft_memchr.c \
-			ft_memcmp.c \
-			ft_strlen.c \
-			ft_memcpy.c \
-			ft_memdel.c \
-			ft_memmove.c \
-			ft_memset.c \
-			ft_putnbr.c \
-			ft_strcat.c \
-			ft_strchr.c \
-			ft_strclr.c \
-			ft_strcmp.c \
-			ft_strcpy.c \
-			ft_strdel.c \
-			ft_strdup.c \
-			ft_strlcat.c \
-			ft_strlen.c \
-			ft_strncat.c \
-			ft_strncmp.c \
-			ft_strncpy.c \
-			ft_strnew.c \
-			ft_strnstr.c \
-			ft_strrchr.c \
-			ft_strstr.c \
-			ft_tolower.c \
-			ft_toupper.c \
-			ft_memalloc.c \
-			ft_memdel.c \
-			ft_strnew.c \
-			ft_strdel.c \
-			ft_strclr.c \
-			ft_striter.c \
-			ft_striteri.c \
-			ft_strmap.c \
-			ft_strmapi.c \
-			ft_strequ.c \
-			ft_strnequ.c \
-			ft_strsub.c \
-			ft_strjoin.c \
-			ft_strtrim.c \
-			ft_strsplit.c \
-			ft_itoa.c \
-			ft_putchar.c \
-			ft_putstr.c \
-			ft_putendl.c \
-			ft_putnbr.c \
-			ft_putchar_fd.c \
-			ft_putstr_fd.c \
-			ft_putendl_fd.c \
-			ft_putendl_fd.c \
-			ft_putnbr_fd.c \
-			ft_lstnew.c \
-			ft_lstdelone.c \
-			ft_lstdel.c \
-			ft_lstadd.c \
-			ft_lstiter.c \
-			ft_lstmap.c \
-			ft_lstlen.c \
-			ft_lst_at.c \
-			ft_lstnext.c \
-			ft_print_word_tab.c \
-			ft_print_nbr_tab.c
+            ft_bzero.c \
+            ft_isalnum.c \
+            ft_isalpha.c \
+            ft_isascii.c \
+            ft_isdigit.c \
+            ft_isprint.c \
+            ft_memalloc.c \
+            ft_memccpy.c \
+            ft_memchr.c \
+            ft_memcmp.c \
+            ft_strlen.c \
+            ft_memcpy.c \
+            ft_memdel.c \
+            ft_memmove.c \
+            ft_memset.c \
+            ft_strcat.c \
+            ft_strchr.c \
+            ft_strclr.c \
+            ft_strcmp.c \
+            ft_strcpy.c \
+            ft_strdel.c \
+            ft_strdup.c \
+            ft_strlcat.c \
+            ft_strncat.c \
+            ft_strncmp.c \
+            ft_strncpy.c \
+            ft_strnew.c \
+            ft_strnstr.c \
+            ft_strrchr.c \
+            ft_strstr.c \
+            ft_tolower.c \
+            ft_toupper.c \
+            ft_striter.c \
+            ft_striteri.c \
+            ft_strmap.c \
+            ft_strmapi.c \
+            ft_strequ.c \
+            ft_strnequ.c \
+            ft_strsub.c \
+            ft_strjoin.c \
+            ft_strtrim.c \
+            ft_strsplit.c \
+            ft_itoa.c \
+            ft_putchar.c \
+            ft_putstr.c \
+            ft_putendl.c \
+            ft_putnbr.c \
+            ft_putchar_fd.c \
+            ft_putstr_fd.c \
+            ft_putendl_fd.c \
+            ft_putnbr_fd.c \
+            ft_lstnew.c \
+            ft_lstdelone.c \
+            ft_lstdel.c \
+            ft_lstadd.c \
+            ft_lstiter.c \
+            ft_lstmap.c \
+            ft_lstlen.c \
+            ft_lst_at.c \
+            ft_lstnext.c \
+            ft_print_word_tab.c \
+            ft_print_nbr_tab.c \
 
 # Sources, objects and includes path
 SRCS_PATH = ./srcs/
@@ -131,6 +123,7 @@ _ICYAN = $'\033[46m
 _IGREY = $'\033[47m
 
 verif = 0
+LINE = " $(_CYAN)[%3d%%]\t$(_BLUE)%-24s $(_PURPLE)=>$(_BLUE)\t%-24s$(_DEF)\n"
 
 all: $(NAME)
 
@@ -142,10 +135,14 @@ $(NAME): $(OBJS)
 	@echo
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
-	@if [[ $(verif) -eq 0 ]] ; then echo -e "\t$(_GREY)==> $(NAME) <=="; fi
-	$(eval verif = 1)
-	@mkdir $(OBJS_PATH) 2> /dev/null || true
-	@echo -e "$(_YELLOW)Compiling :\t$(_GREEN)" $<
+	@if [[ $(verif) -eq 0 ]]; then printf "$(_GREEN)$(_DEF)\n";\
+	else printf "\e[1A"; fi
+	$(eval FNCT = $(words $(SRCS)))
+	$(eval verif = $(shell echo $(verif) + 1 | bc ))
+	$(eval PCR = $(shell echo "$(verif) / $(FNCT) * 100" | bc -l))
+	@printf $(LINE) $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
+	@mkdir -p objs
+	@printf "$(_DEF)"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
