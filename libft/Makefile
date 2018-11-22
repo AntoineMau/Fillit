@@ -6,7 +6,7 @@
 #    By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:30:56 by anmauffr          #+#    #+#              #
-#    Updated: 2018/11/22 11:08:43 by judumay          ###   ########.fr        #
+#    Updated: 2018/11/22 17:21:28 by anmauffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,7 @@ SRCS_NAME = ft_atoi.c \
             ft_lstnext.c \
             ft_print_word_tab.c \
             ft_print_nbr_tab.c \
+			get_next_line.c
 
 # Sources, objects and includes path
 SRCS_PATH = ./srcs/

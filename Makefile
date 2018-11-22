@@ -6,7 +6,7 @@
 #    By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:30:56 by anmauffr          #+#    #+#              #
-#    Updated: 2018/11/22 11:09:17 by judumay          ###   ########.fr        #
+#    Updated: 2018/11/22 17:19:21 by anmauffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SHELL = bash
 NAME = fillit
 
 # Sources names
-SRCS_NAME = ft_hello.c \
+SRCS_NAME = ft_verif.c \
 			main.c
 
 # Sources, objects and includes path

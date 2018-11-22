@@ -6,7 +6,7 @@
 /*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 17:48:31 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/14 15:52:40 by anmauffr         ###   ########.fr       */
+/*   Updated: 2018/11/22 17:20:59 by anmauffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
 int				ft_lstlen(t_list *lst);
+int				get_next_line(const int fd, char **line);
 size_t			ft_strlen(const char *s);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 char			*ft_strdup(const char *s);

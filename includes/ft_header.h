@@ -6,20 +6,29 @@
 /*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:21:14 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/21 13:49:18 by anmauffr         ###   ########.fr       */
+/*   Updated: 2018/11/22 17:27:02 by anmauffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_HEADER_H
 # define FT_HEADER_H
 
+# include "../libft/includes/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
 
+typedef struct	s_liste
+{
+	int				x;
+	int				y;
+	void			*data;
+	struct s_liste	*next;
+}				t_liste;
+
 int		main(int ac, char **av);
-void	ft_hello(void);
+int		ft_verif(char *str);
 
 #endif

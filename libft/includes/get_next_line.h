@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hello.c                                         :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/21 13:40:38 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/21 16:30:28 by anmauffr         ###   ########.fr       */
+/*   Created: 2018/11/15 14:35:10 by anmauffr          #+#    #+#             */
+/*   Updated: 2018/11/22 17:23:06 by anmauffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_header.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	ft_hello(void)
-{
-	write(1, "HELLO\0", 6);
-}
+# include "./libft.h"
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+
+# define BUFF_SIZE 10
+
+int		get_next_line(const int fd, char **line);
+
+#endif
