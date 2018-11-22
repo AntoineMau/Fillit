@@ -6,7 +6,7 @@
 #    By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:30:56 by anmauffr          #+#    #+#              #
-#    Updated: 2018/11/21 22:33:00 by anmauffr         ###   ########.fr        #
+#    Updated: 2018/11/22 11:09:17 by judumay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,30 +63,26 @@ _ICYAN = $'\033[46m
 _IGREY = $'\033[47m
 
 verif = 0
-verif1 = 0
-LINE = " $(_GREEN)[%3d%%]\t$(_DEF)%-24s $(_PURPLE)👉$(_GREEN)\t%-24s$(_DEF)\n"
 
 all: $(NAME)
 
 $(NAME): libft/libft.a $(OBJS)
 	@$(CC) $(LDFLAGS)$(LDLIBS) $(OBJS) -o $@
-	@echo
+	@echo -en "$(_GREEN)\t [OK]\n\n$(_DEF)"
 
 libft/libft.a:
-	@echo -e "$(_GRAS)$(_CYAN)|==========================>  $(LDLIBS)  <==========================|$(_DEF)"
 	@make -C $(LDFLAGS)
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
-	@if [[ $(verif) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|==========================>  $(NAME)   <==========================|$(_DEF)\n\n";\
+	@if [[ $(verif) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|==========================>  $(NAME)   <==========================|$(_DEF)\n";\
 	else printf "\e[1A"; fi
 	$(eval FNCT = $(words $(SRCS)))
 	$(eval verif = $(shell echo $(verif) + 1 | bc ))
 	$(eval PCR = $(shell echo "$(verif) / $(FNCT) * 100" | bc -l))
-	@printf $(LINE) $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
+	@printf " \n$(_GREEN)[%3d%%]\t$(_DEF)%-24s $(_PURPLE)👉$(_GREEN)\t%-24s$(_DEF)" $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
 	@mkdir -p objs
 	@printf "$(_DEF)"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
-
 
 clean: lib_clean
 	@rm -rf $(OBJS_PATH) 2> /dev/null || true
@@ -112,4 +108,4 @@ norme:
 	@norminette $(SRCS_PATH)
 	@norminette $(INCS_PATH)
 
-.PHONY: all clean fclean lib_clean lib_fclean re norme
+.PHONY: all lib_clean lib_fclean clean fclean re  norme

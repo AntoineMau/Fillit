@@ -6,7 +6,7 @@
 #    By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:30:56 by anmauffr          #+#    #+#              #
-#    Updated: 2018/11/21 22:28:50 by anmauffr         ###   ########.fr        #
+#    Updated: 2018/11/22 11:08:43 by judumay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,34 +123,38 @@ _ICYAN = $'\033[46m
 _IGREY = $'\033[47m
 
 verif = 0
-LINE = " $(_GREEN)[%3d%%]\t$(_DEF)%-24s $(_DEF)👉\t$(_GREEN) %-24s$(_DEF)\n"
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
+	@echo -en "$(_GREEN)\t [OK]$(_DEF)\n"
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
-	@if [[ $(verif) -eq 0 ]]; then printf "$(_GREEN)$(_DEF)\n";\
+	@if [[ $(verif) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|==========================>  $(NAME)   <==========================|$(_DEF)\n";\
 	else printf "\e[1A"; fi
 	$(eval FNCT = $(words $(SRCS)))
 	$(eval verif = $(shell echo $(verif) + 1 | bc ))
 	$(eval PCR = $(shell echo "$(verif) / $(FNCT) * 100" | bc -l))
-	@printf $(LINE) $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
+	@printf " \n$(_GREEN)[%3d%%]\t$(_DEF)%-24s $(_DEF)👉\t$(_GREEN) %-24s$(_DEF)" $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
 	@mkdir -p objs
 	@printf "$(_DEF)"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
+	@echo
 	@rm -rf $(OBJS_PATH) 2> /dev/null || true
 	@echo -e "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)objs/
+	@echo
 
 fclean:
+	@echo
 	@rm -rf $(OBJS_PATH) 2> /dev/null || true
 	@rm -f $(NAME)
 	@echo -e "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)objs/
 	@echo -e "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)$(NAME)
+	@echo
 
 re: fclean all
 
