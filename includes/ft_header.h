@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_header.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:21:14 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/23 11:50:56 by anmauffr         ###   ########.fr       */
+/*   Updated: 2018/11/26 21:21:50 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ typedef struct	s_liste
 {
 	int				x;
 	int				y;
-	void			*data;
+	char			*data;
 	struct s_liste	*next;
 }				t_liste;
 
 int		main(int ac, char **av);
-int		ft_verif(char *str);
 
 #endif
