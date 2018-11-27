@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:21:14 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/27 09:55:31 by judumay          ###   ########.fr       */
+/*   Updated: 2018/11/27 19:03:27 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 
-# define BUFF_SIZE 42
+# define BUFF_SIZE 4096
+# define ERROR  ft_putendl("error")
 
 typedef struct	s_liste
 {
@@ -34,6 +35,6 @@ typedef struct	s_liste
 }				t_liste;
 
 int				main(int ac, char **av);
-int				ft_verif(t_liste *liste);
+int				ft_verif_args(int ac, char **av);
 
 #endif
