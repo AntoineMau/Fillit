@@ -6,12 +6,14 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 13:39:43 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/26 21:30:03 by judumay          ###   ########.fr       */
+/*   Updated: 2018/11/27 09:49:51 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
 #include <stdio.h>
+
+#define ERROR  ft_putstr("error\n")
 
 t_liste	*ft_strcasse(char *str)
 {
@@ -20,7 +22,6 @@ t_liste	*ft_strcasse(char *str)
 
 	i = 0;
 	lst = NULL;
-	dprintf(1, "ok2\n");
 	while (str)
 	{
 		while (i < 20)
@@ -32,7 +33,6 @@ t_liste	*ft_strcasse(char *str)
 			i++;
 		}
 	}
-	dprintf(1, "ok1\n");
 	return (lst);
 }
 
@@ -55,7 +55,8 @@ int		main(int ac, char **av)
 		buf[ret] = '\0';
 		str = ft_strjoin(str, buf);
 	}
-	dprintf(1, "ok1\n");
 	list = ft_strcasse(str);
+	if (!ft_verif(list))
+		ERROR;
 	return (0);
 }
