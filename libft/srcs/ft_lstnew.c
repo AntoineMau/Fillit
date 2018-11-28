@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 18:03:48 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/28 15:21:56 by judumay          ###   ########.fr       */
+/*   Updated: 2018/11/28 18:36:14 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		if (!(elem->content = (void*)malloc(content_size)))
+		if (!(elem->content = (void*)malloc(sizeof(void) * content_size)))
 			return (0);
 		ft_memcpy(elem->content, content, content_size);
 		elem->content_size = content_size;
 	}
 	elem->next = 0;
+	free(elem->next);
 	return (elem);
 }
