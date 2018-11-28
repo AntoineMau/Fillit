@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:21:14 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/27 19:03:27 by judumay          ###   ########.fr       */
+/*   Updated: 2018/11/28 12:35:53 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@
 typedef struct	s_liste
 {
 	char			*data;
-	int				x;
-	int				y;
 	int				n;
 	int				hashtag;
 	int				point;
@@ -35,6 +33,8 @@ typedef struct	s_liste
 }				t_liste;
 
 int				main(int ac, char **av);
-int				ft_verif_args(int ac, char **av);
+int				ft_verif_args(int ac, char **av, char *buf, t_liste *count);
+int				ft_check_n(char *str, int i, int n);
+int				ft_check_str(char *str, t_liste *count);
 
 #endif
