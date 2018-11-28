@@ -6,7 +6,7 @@
 /*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 14:56:58 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/14 16:57:26 by anmauffr         ###   ########.fr       */
+/*   Updated: 2018/11/28 19:25:27 by anmauffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char		**ft_strsplit(char const *s, char c)
 			return (0);
 		while (s[k] == c)
 			k++;
-		while (s[k] != c)
+		while (s[k] != c && s[k])
 			str[i][j++] = s[k++];
 		str[i++][j] = '\0';
 	}
