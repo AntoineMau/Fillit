@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:12:07 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/28 12:35:41 by judumay          ###   ########.fr       */
+/*   Updated: 2018/11/28 15:54:04 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,26 @@
 
 #include <stdio.h>
 
-int		ft_check_neib(char *str)
+int		ft_check_neib(t_list *new)
 {
 	int voisin;
 	int i;
-	int n;
-	int j;
 
-	i = 0;
-	n = 0;
-	j = -1;
-	voisin = 0;
-	while (str[++i])
+	while (new)
 	{
-		(str[i] == '\n') ? n++ : n;
-		if (str[i] == '#')
-		{
-			(str[i + 1] == '#') ? voisin++ : voisin;
-			(str[i - 1] == '#') ? voisin++ : voisin;
-			(n % 5 != 4 && str[i + 5] == '#') ? voisin++ : voisin;
-			(n % 5 != 0 && str[i - 5] == '#') ? voisin++ : voisin;
-		}
-		printf("voisin: %d\ti: %d\tn: %d\tstr[i]: %c\n", voisin, i, n, str[i]);
-		if (i % 20 == 0)
-		{
-			printf("here\n");
-			if (i != 0 && voisin != 6 && voisin != 8)
-				return (-1);
-			voisin = 0;
-		}
+		voisin = 0;
+		i = -1;
+		while (++i < 20)
+			if (((char*)new->content)[i] == '#')
+			{
+				(((char*)new->content)[i + 1] == '#') ? voisin++ : voisin;
+				(((char*)new->content)[i - 1] == '#') ? voisin++ : voisin;
+				(((char*)new->content)[i + 5] == '#') ? voisin++ : voisin;
+				(((char*)new->content)[i - 5] == '#') ? voisin++ : voisin;
+			}
+		if (i != 0 && voisin != 6 && voisin != 8)
+			return (-1);
+		new = new->next;
 	}
 	return (1);
 }
@@ -62,7 +53,7 @@ int		ft_check_n(char *str, int i, int n)
 	return (-1);
 }
 
-int		ft_check_str(char *str, t_liste *count)
+int		ft_check_str(char *str, t_list *count)
 {
 	int		i;
 
@@ -88,7 +79,7 @@ int		ft_check_str(char *str, t_liste *count)
 	return (1);
 }
 
-int		ft_verif_args(int ac, char **av, char *buf, t_liste *count)
+int		ft_verif_args(int ac, char **av, char *buf, t_list *count)
 {
 	int		fd;
 	int		ret;

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+         #
+#    By: judumay <judumay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:30:56 by anmauffr          #+#    #+#              #
-#    Updated: 2018/11/22 17:19:21 by anmauffr         ###   ########.fr        #
+#    Updated: 2018/11/28 14:50:48 by judumay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ NAME = fillit
 # Sources names
 SRCS_NAME = ft_verif.c \
 			main.c
+INCS_NAMES = ft_header.h
 
 # Sources, objects and includes path
 SRCS_PATH = ./srcs/
@@ -27,6 +28,7 @@ INCS_PATH = ./includes/
 # Sources and objects
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 OBJS = $(patsubst $(SRCS_PATH)%.c, $(OBJS_PATH)%.o, $(SRCS))
+INC = $(addprefix $(INCS_PATH), $(INCS_NAMES))
 
 # Compilation
 CC = gcc
@@ -73,7 +75,7 @@ $(NAME): libft/libft.a $(OBJS)
 libft/libft.a:
 	@make -C $(LDFLAGS)
 
-$(OBJS_PATH)%.o: $(SRCS_PATH)%.c
+$(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(INC)
 	@if [[ $(verif) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|==========================>  $(NAME)   <==========================|$(_DEF)\n";\
 	else printf "\e[1A"; fi
 	$(eval FNCT = $(words $(SRCS)))

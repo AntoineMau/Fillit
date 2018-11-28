@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 17:48:31 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/22 17:20:59 by anmauffr         ###   ########.fr       */
+/*   Updated: 2018/11/28 14:15:54 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ typedef struct	s_list
 {
 	void			*content;
 	size_t			content_size;
+	int				n;
+	int				hashtag;
+	int				point;
 	struct s_list	*next;
 }				t_list;
 
@@ -88,5 +91,6 @@ char			**ft_strsplit(char const *s, char c);
 t_list			*ft_lstnew(void const *content, size_t content_size);
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list			*ft_lst_at(t_list *begin, unsigned int nbr);
+t_list			*ft_lstcreate(void *content);
 
 #endif
