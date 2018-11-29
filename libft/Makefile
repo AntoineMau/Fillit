@@ -6,7 +6,7 @@
 #    By: judumay <judumay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:30:56 by anmauffr          #+#    #+#              #
-#    Updated: 2018/11/29 10:05:56 by judumay          ###   ########.fr        #
+#    Updated: 2018/11/29 10:10:14 by judumay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,6 @@ SRCS_NAME = ft_atoi.c \
 			ft_memdel.c \
 			ft_memmove.c \
 			ft_memset.c \
-			ft_putnbr.c \
 			ft_strcat.c \
 			ft_strchr.c \
 			ft_strclr.c \
@@ -41,7 +40,6 @@ SRCS_NAME = ft_atoi.c \
 			ft_strdel.c \
 			ft_strdup.c \
 			ft_strlcat.c \
-			ft_strlen.c \
 			ft_strncat.c \
 			ft_strncmp.c \
 			ft_strncpy.c \
@@ -51,11 +49,6 @@ SRCS_NAME = ft_atoi.c \
 			ft_strstr.c \
 			ft_tolower.c \
 			ft_toupper.c \
-			ft_memalloc.c \
-			ft_memdel.c \
-			ft_strnew.c \
-			ft_strdel.c \
-			ft_strclr.c \
 			ft_striter.c \
 			ft_striteri.c \
 			ft_strmap.c \
@@ -74,7 +67,6 @@ SRCS_NAME = ft_atoi.c \
 			ft_putchar_fd.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
-			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
 			ft_lstnew.c \
 			ft_lstdelone.c \
@@ -82,12 +74,10 @@ SRCS_NAME = ft_atoi.c \
 			ft_lstadd.c \
 			ft_lstiter.c \
 			ft_lstmap.c \
-			ft_lstlen.c \
 			ft_lst_at.c \
 			ft_lstnext.c \
 			ft_print_word_tab.c \
 			ft_print_nbr_tab.c
-
 
 # Sources, objects and includes path
 SRCS_PATH = ./srcs/
