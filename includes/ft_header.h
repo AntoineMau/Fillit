@@ -6,28 +6,47 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:21:14 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/28 15:39:41 by judumay          ###   ########.fr       */
+/*   Updated: 2018/11/29 14:37:13 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_HEADER_H
 # define FT_HEADER_H
 
-# include "../libft/includes/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
 
+# define BUFF_SIZE 545
 
-# define BUFF_SIZE 4096
-# define ERROR  ft_putendl("error")
+typedef struct	s_list
+{
+	char			*content;
+	struct s_list	*next;
+}				t_list;
 
-int				main(int ac, char **av);
-int				ft_verif_args(int ac, char **av, char *buf, t_list *count);
+typedef struct	s_count
+{
+	int				n;
+	int				point;
+	int				hashtag;
+}				t_count;
+
+
+void			ft_putendl(char const *s);
+void			ft_lstnext(t_list **begin_list, char *content);
+void			*ft_memcpy(void *dst, const void *src, size_t n);
+int				ft_verif_args(int ac, char **av, char *buf, t_count *count);
 int				ft_check_n(char *str, int i, int n);
-int				ft_check_str(char *str, t_list *count);
+int				ft_check_str(char *str, t_count *count);
 int				ft_check_neib(t_list *new);
+int				ft_strlen(char *str);
+int				main(int ac, char **av);
+char			*ft_strdup(char *s);
+t_list			*ft_verif_lst(t_list *new, t_list *temp, char *str);
+t_list			*ft_lst_split(t_list *new, char *str);
+t_list			*ft_lstnew(char *content);
 
 #endif

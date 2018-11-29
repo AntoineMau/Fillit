@@ -6,7 +6,7 @@
 #    By: judumay <judumay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:30:56 by anmauffr          #+#    #+#              #
-#    Updated: 2018/11/28 14:50:48 by judumay          ###   ########.fr        #
+#    Updated: 2018/11/29 14:53:02 by judumay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ NAME = fillit
 
 # Sources names
 SRCS_NAME = ft_verif.c \
+			do_lst.c \
+			ft_utilies.c \
 			main.c
 INCS_NAMES = ft_header.h
 
@@ -68,12 +70,9 @@ verif = 0
 
 all: $(NAME)
 
-$(NAME): libft/libft.a $(OBJS)
-	@$(CC) $(LDFLAGS)$(LDLIBS) $(OBJS) -o $@
+$(NAME): $(OBJS)
+	@$(CC) $(OBJS) -o $@
 	@echo -en "$(_GREEN)\t [OK]\n\n$(_DEF)"
-
-libft/libft.a:
-	@make -C $(LDFLAGS)
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(INC)
 	@if [[ $(verif) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|==========================>  $(NAME)   <==========================|$(_DEF)\n";\
@@ -86,23 +85,18 @@ $(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(INC)
 	@printf "$(_DEF)"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
-clean: lib_clean
+clean:
+	@echo
 	@rm -rf $(OBJS_PATH) 2> /dev/null || true
 	@echo -e "$(_YELLOW)Remove :\t$(_RED)" $(OBJS_PATH)
 	@echo
 
-fclean: lib_fclean
-	@rm -rf $(OBJS_PATH) 2> /dev/null || true
+fclean: clean
 	@rm -f $(NAME)
-	@echo -e "$(_YELLOW)Remove :\t$(_RED)" $(OBJS_PATH)
 	@echo -e "$(_YELLOW)Remove :\t$(_RED)" $(NAME)
 	@echo
 
-lib_clean:
-	@make -C $(LDFLAGS) clean
 
-lib_fclean:
-	@make -C $(LDFLAGS) fclean
 
 re: fclean all
 
