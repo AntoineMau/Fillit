@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 11:24:29 by judumay           #+#    #+#             */
-/*   Updated: 2018/11/29 14:49:34 by judumay          ###   ########.fr       */
+/*   Updated: 2018/11/29 15:46:11 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int		main(int ac, char **av)
 {
 	char	str[BUFF_SIZE + 1];
+	char	*finish;
 	t_count	piece;
 	t_list	*new;
 	t_list	*temp;
@@ -31,5 +32,6 @@ int		main(int ac, char **av)
 		return (-1);
 	}
 	free(temp);
+	ft_putendl(finish = ft_do_it(new));
 	return (0);
 }

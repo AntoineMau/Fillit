@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 13:45:56 by judumay           #+#    #+#             */
-/*   Updated: 2018/11/29 14:33:04 by judumay          ###   ########.fr       */
+/*   Updated: 2018/11/29 16:09:14 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 #include <string.h>
 #include <unistd.h>
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(char *dst, char *src, size_t n, int k)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < n)
 	{
-		((char*)dst)[i] = ((char*)src)[i];
+		if (((char*)src)[i] == '#')
+			((char*)dst)[i] = 'A' + k;
+		else
+			((char*)dst)[i] = ((char*)src)[i];
 		i++;
 	}
 	return (dst);
@@ -66,4 +69,18 @@ char	*ft_strdup(char *s1)
 		j++;
 	}
 	return (str);
+}
+
+int	ft_lstlen(t_list *new)
+{
+	int		len;
+	t_list	*elem;
+
+	if (!new)
+		return (0);
+	len = 0;
+	elem = new;
+	while ((len++) && elem)
+		elem = elem->next;
+	return (len);
 }

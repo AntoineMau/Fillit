@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:15:31 by judumay           #+#    #+#             */
-/*   Updated: 2018/11/29 14:49:03 by judumay          ###   ########.fr       */
+/*   Updated: 2018/11/29 16:08:48 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 
-t_list	*ft_lstnew(char *content)
+t_list	*ft_lstnew(char *content, int i)
 {
 	t_list	*new;
 
@@ -26,7 +26,7 @@ t_list	*ft_lstnew(char *content)
 	{
 		if (!(new->content = (char*)malloc(sizeof(char) * 21)))
 			return (NULL);
-		ft_memcpy(new->content, content, 20);
+		ft_memcpy(new->content, content, 20, i);
 		new->content[20] = '\0';
 	}
 	new->next = NULL;
@@ -36,13 +36,14 @@ t_list	*ft_lstnew(char *content)
 void	ft_lstnext(t_list **begin_list, char *content)
 {
 	t_list	*elem;
+	int		compteur;
 
 	if (*begin_list)
 	{
 		elem = *begin_list;
 		while (elem->next)
 			elem = elem->next;
-		elem->next = ft_lstnew(content);
+		elem->next = ft_lstnew(content, ft_lstlen(new));
 		free(elem);
 	}
 	else
@@ -67,7 +68,7 @@ t_list	*ft_lst_split(t_list *new, char *str)
 	return (begin);
 }
 
-t_list		*ft_verif_lst(t_list *piece, t_list *temp, char *str)
+t_list	*ft_verif_lst(t_list *piece, t_list *temp, char *str)
 {
 	t_list	*begin;
 

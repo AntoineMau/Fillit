@@ -6,7 +6,7 @@
 #    By: judumay <judumay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:30:56 by anmauffr          #+#    #+#              #
-#    Updated: 2018/11/29 14:53:02 by judumay          ###   ########.fr        #
+#    Updated: 2018/11/29 15:00:28 by judumay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ NAME = fillit
 SRCS_NAME = ft_verif.c \
 			do_lst.c \
 			ft_utilies.c \
+			do_it.c \
 			main.c
 INCS_NAMES = ft_header.h
 
