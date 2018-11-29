@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 17:48:31 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/14 15:52:40 by anmauffr         ###   ########.fr       */
+/*   Updated: 2018/11/29 09:59:40 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ typedef struct	s_list
 {
 	void			*content;
 	size_t			content_size;
+	int				n;
+	int				point;
+	int				hashtag;
 	struct s_list	*next;
 }				t_list;
 
