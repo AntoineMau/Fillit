@@ -3,36 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_verif.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:12:07 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/29 14:30:05 by judumay          ###   ########.fr       */
+/*   Updated: 2018/11/29 17:28:37 by anmauffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
 
+#include <stdio.h>
+
 int		ft_check_neib(t_list *new)
 {
-	int		voisin;
+	int		voi;
 	int		i;
 	char	*tmp;
 
 	while (new)
 	{
-		tmp = ft_strdup(new->content);
-		voisin = 0;
+		tmp = ft_strdup(new->data);
+		voi = 0;
 		i = -1;
 		while (++i < 20)
-			if (((char*)new->content)[i] == '#')
+			if (tmp[i] >= 'A' && tmp[i] <= 'Z')
 			{
-				(tmp[i + 1] == '#') ? voisin++ : voisin;
-				(tmp[i - 1] == '#') ? voisin++ : voisin;
-				(i < 15 && tmp[i + 5] == '#') ? voisin++ : voisin;
-				(i > 5 && tmp[i - 5] == '#') ? voisin++ : voisin;
+				tmp[i + 1] >= 'A' && tmp[i + 1] <= 'Z' ? voi++ : voi;
+				tmp[i - 1] >= 'A' && tmp[i - 1] <= 'Z' ? voi++ : voi;
+				i < 15 && tmp[i + 5] >= 'A' && tmp[i + 5] <= 'Z' ? voi++ : voi;
+				i > 4 && tmp[i - 5] >= 'A' && tmp[i - 5] <= 'Z' ? voi++ : voi;
 			}
 		free(tmp);
-		if (i != 0 && voisin != 6 && voisin != 8)
+		if (voi != 6 && voi != 8)
 			return (-1);
 		new = new->next;
 	}

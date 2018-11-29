@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utilies.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 13:45:56 by judumay           #+#    #+#             */
-/*   Updated: 2018/11/29 16:09:14 by judumay          ###   ########.fr       */
+/*   Updated: 2018/11/29 17:53:24 by anmauffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	*ft_memcpy(char *dst, char *src, size_t n, int k)
 
 int		ft_strlen(char *str)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (str[i])
@@ -42,8 +42,9 @@ int		ft_strlen(char *str)
 
 void	ft_putendl(char const *s)
 {
-	int	i;
+	int		i;
 
+	write(1, "\n", 1);
 	i = 0;
 	while (s[i])
 		i++;
