@@ -3,16 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   do_it.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 14:57:34 by judumay           #+#    #+#             */
-/*   Updated: 2018/11/29 18:47:14 by anmauffr         ###   ########.fr       */
+/*   Updated: 2018/11/30 15:07:43 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
-
 #include <stdio.h>
+
+char	*ft_change(t_count *ct, char *data, int n, char c)
+{
+		data[ct->pos1] = '.';
+		data[ct->pos2] = '.';
+		data[ct->pos3] = '.';
+		data[ct->pos4] = '.';
+		ct->pos1 -= n;
+		ct->pos2 -= n;
+		ct->pos3 -= n;
+		ct->pos4 -= n;
+		data[ct->pos1] = c;
+		data[ct->pos2] = c;
+		data[ct->pos3] = c;
+		data[ct->pos4] = c;
+	return (data);
+}
 
 static void	ft_set_carre(char *s, int n, int size)
 {
@@ -32,43 +48,28 @@ static void	ft_set_carre(char *s, int n, int size)
 	s = str;
 }
 
-/*int			check_place(char *carre, char *s, int i)
-{
-
-}*/
-
 char		*ft_do_it(t_list *new)
 {
-	int		i;
-	int		j;
-	int		cnt;
 	char	*carre;
+	int		i;
+	int		c;
 	t_list	*begin;
 
-	i = 4;
 	begin = new;
+	i = 4;
+	c = 0;
 	if (!(carre = (char*)malloc(sizeof(char) * ((i + 1) * i + 1))))
 		return (NULL);
-	ft_set_carre(carre, (i + 1) * i, i + 1);
-	i = -1;
-	cnt = 0;
-	while (++i < 5)
+	ft_set_carre(carre, (i + 1) * i, i + 1); 
+	while (new)
 	{
-		if (new->data[i] >= 'A' && new->data[i] <= 'Z')
-			cnt++;
-		if (i == 4 && cnt == 0)
-		{
-			j = 0;
-			while (new->data[i])
-				new->data[j++] = new->data[i++];
-			while (new->data[j])
-				if (j % 5 != 0)
-					new->data[j++] = '.';
-				else
-					new->data[j++] = '\n';
-			i = -1;
-		}
-		printf("%s\n\n", new->data);
+		new->data = ft_decale_up(new->data, c);
+		new->data = ft_decale_left(new->data, c);
+		new->data = ft_decale_down(new->data, c);
+		new->data = ft_decale_right(new->data, c);
+		printf("data :\n%s", new->data);
+		c++;
+		new = new->next;
 	}
 	return (carre);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   do_lst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:15:31 by judumay           #+#    #+#             */
-/*   Updated: 2018/11/29 17:28:37 by anmauffr         ###   ########.fr       */
+/*   Updated: 2018/11/30 10:58:19 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,34 +33,25 @@ t_list	*ft_lstnew(char *data, int i)
 	return (new);
 }
 
-void	ft_lstnext(t_list **begin, char *data)
+void	ft_lstnext(t_list **begin, char *data, int k)
 {
-	t_list	*elem;
-
-	if (*begin)
-	{
-		elem = *begin;
-		while (elem->next)
-			elem = elem->next;
-		elem->next = ft_lstnew(data, ft_lstlen(elem));
-		free(elem);
-	}
-	else
-		*begin = ft_lstnew(data, 0);
+	*begin = ft_lstnew(data, k);
 }
 
 t_list	*ft_lst_split(t_list *new, char *str)
 {
 	int		i;
+	int		k;
 	t_list	*begin;
 
 	i = 0;
-	ft_lstnext(&new, &str[i]);
+	k = 0;
+	ft_lstnext(&new, &str[i], k++);
 	i += 21;
 	begin = new;
 	while (i < ft_strlen(str))
 	{
-		ft_lstnext(&new->next, &str[i]);
+		ft_lstnext(&new->next, &str[i], k++);
 		i += 21;
 		new = new->next;
 	}

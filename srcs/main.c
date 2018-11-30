@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 11:24:29 by judumay           #+#    #+#             */
-/*   Updated: 2018/11/29 17:05:39 by anmauffr         ###   ########.fr       */
+/*   Updated: 2018/11/30 11:38:04 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
+#include <stdio.h>
 
 int		main(int ac, char **av)
 {
@@ -32,6 +33,6 @@ int		main(int ac, char **av)
 		return (-1);
 	}
 	free(tmp);
-	ft_putendl(finish = ft_do_it(new));
+	finish = ft_do_it(new);
 	return (0);
 }
