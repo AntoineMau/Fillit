@@ -6,70 +6,51 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 14:57:34 by judumay           #+#    #+#             */
-/*   Updated: 2018/11/30 15:07:43 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/03 18:14:39 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
 #include <stdio.h>
 
-char	*ft_change(t_count *ct, char *data, int n, char c)
+int				ft_change(t_list *ct, char *data, int n, char c)
 {
-		data[ct->pos1] = '.';
-		data[ct->pos2] = '.';
-		data[ct->pos3] = '.';
-		data[ct->pos4] = '.';
-		ct->pos1 -= n;
-		ct->pos2 -= n;
-		ct->pos3 -= n;
-		ct->pos4 -= n;
-		data[ct->pos1] = c;
-		data[ct->pos2] = c;
-		data[ct->pos3] = c;
-		data[ct->pos4] = c;
-	return (data);
+	data[ct->pos1] = '.';
+	data[ct->pos2] = '.';
+	data[ct->pos3] = '.';
+	data[ct->pos4] = '.';
+	ct->pos1 -= n;
+	ct->pos2 -= n;
+	ct->pos3 -= n;
+	ct->pos4 -= n;
+	data[ct->pos1] = c;
+	data[ct->pos2] = c;
+	data[ct->pos3] = c;
+	data[ct->pos4] = c;
+	return (1);
 }
 
-static void	ft_set_carre(char *s, int n, int size)
+char			*ft_do_it(t_list *new)
 {
-	int		i;
-	char	*str;
-
-	str = s;
-	i = -1;
-	while (++i < n)
-	{
-		if (i % size == size - 1)
-			str[i] = '\n';
-		else
-			str[i] = '.';
-	}
-	str[i] = '\0';
-	s = str;
-}
-
-char		*ft_do_it(t_list *new)
-{
-	char	*carre;
-	int		i;
 	int		c;
+	char	*carre;
 	t_list	*begin;
 
-	begin = new;
-	i = 4;
 	c = 0;
-	if (!(carre = (char*)malloc(sizeof(char) * ((i + 1) * i + 1))))
-		return (NULL);
-	ft_set_carre(carre, (i + 1) * i, i + 1); 
+	begin = new;
 	while (new)
 	{
-		new->data = ft_decale_up(new->data, c);
-		new->data = ft_decale_left(new->data, c);
-		new->data = ft_decale_down(new->data, c);
-		new->data = ft_decale_right(new->data, c);
+		while (ft_decale_up(new, new->data, c) != 0 || ft_decale_left(new, new->data, c) != 0)
+			;
+		printf("\npos1 : %d pos2: %d pos3: %d pos4: %d\n", new->pos1, new->pos2, new->pos3, new->pos4);
 		printf("data :\n%s", new->data);
 		c++;
 		new = new->next;
 	}
+	new = begin;
+	if (!(carre = (char*)malloc(sizeof(char) * ((2 + 1) * 2 + 1))))
+		return (NULL);
+	carre = ft_set_carre(carre, (2 + 1) * 2, 2 + 1);
+	carre = ft_backtrack(new, 2, carre, begin);
 	return (carre);
 }

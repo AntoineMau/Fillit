@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utilies.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 13:45:56 by judumay           #+#    #+#             */
-/*   Updated: 2018/11/29 17:53:24 by anmauffr         ###   ########.fr       */
+/*   Updated: 2018/12/03 11:49:33 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	*ft_strdup(char *s1)
 	return (str);
 }
 
-int	ft_lstlen(t_list *new)
+int		ft_lstlen(t_list *new)
 {
 	int		len;
 	t_list	*elem;

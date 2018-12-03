@@ -6,7 +6,7 @@
 #    By: judumay <judumay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:30:56 by anmauffr          #+#    #+#              #
-#    Updated: 2018/11/30 15:02:31 by judumay          ###   ########.fr        #
+#    Updated: 2018/12/03 15:42:23 by judumay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS_NAME = ft_verif.c \
 			ft_utilies.c \
 			do_it.c \
 			ft_coupe_decale.c \
+			ft_backtrack.c \
 			main.c
 INCS_NAMES = ft_header.h
 
