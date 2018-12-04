@@ -6,44 +6,53 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:29:14 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/03 18:36:24 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/04 09:38:43 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
 #include <stdio.h>
 
+int		ft_check_point(char *carre)
+{
+	int i;
+
+	i = 0;
+	while (*carre)
+	{
+		if (*carre == '.')
+			i++;
+		carre++;
+	}
+	if (i >= 4)
+		return (1);
+	return (0);
+}
+
 int		ft_placement(char *carre, t_list *new)
 {
 	int		i;
-	int		j;
-	int		k;
-	int		l;
+	int		compteur;
 
-	k = 0;
-	l = -1;
-	while (carre[++l])
+	compteur = 0;
+	i = -1;
+	if (!ft_check_point(carre))
+		return (0);
+	while (carre[++i])
 	{
-		j = -1;
-		i = l;
-		while (new->data[++j])
-		{
-			if (new->data[j] >= 'A' && new->data[j] <= 'Z' && carre[i] == '.')
-			{
-				carre[i] = new->data[j];
-				k++;
-			}
-			if (carre[i] == '\n' || new->data[j] == '\n')
-			{
-				while (carre[i] != '\n' && carre[i])
-					i++;
-				while (new->data[j] != '\n' && new->data[j])
-					j++;
-			}
-			i++;
-		}
-		if (k == 4)
+		compteur = 0;
+		if (ft_test(new, carre) == 1)
 			return (1);
+		else
+		{
+			if (!ft_decale_right(new, new->data, 'A' + new->letter))
+			{
+				if (!ft_decale_down(new, new->data, 'A' + new->letter))
+					break ;
+				while (ft_decale_left(new, new->data, 'A' + new->letter)
+					;
+			}
+		}
 	}
 	return (0);
 }

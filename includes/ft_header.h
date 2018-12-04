@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:21:14 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/12/03 18:12:54 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/04 09:09:05 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct	s_list
 	int				pos2;
 	int				pos3;
 	int				pos4;
+	int				letter;
 	struct s_list	*next;
 }				t_list;
 

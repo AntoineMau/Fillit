@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 14:57:34 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/03 18:14:39 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/04 09:11:20 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,16 @@ char			*ft_do_it(t_list *new)
 	t_list	*begin;
 
 	c = 0;
+	new->letter = 0;
 	begin = new;
 	while (new)
 	{
 		while (ft_decale_up(new, new->data, c) != 0 || ft_decale_left(new, new->data, c) != 0)
 			;
-		printf("\npos1 : %d pos2: %d pos3: %d pos4: %d\n", new->pos1, new->pos2, new->pos3, new->pos4);
-		printf("data :\n%s", new->data);
 		c++;
+		new->letter = c - 1;
+		printf("\npos1 : %d pos2: %d pos3: %d pos4: %d\n", new->pos1, new->pos2, new->pos3, new->pos4);
+		printf("data :\n%s\n letter = %d \n", new->data, new->letter);
 		new = new->next;
 	}
 	new = begin;
