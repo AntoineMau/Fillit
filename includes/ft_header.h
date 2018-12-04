@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:21:14 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/12/04 09:09:05 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/04 12:11:02 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ int				ft_lstlen(t_list *new);
 int				ft_change(t_list *ct, char *data, int n, char c);
 int				ft_decale_down(t_list *ct, char *data, int c);
 int				ft_decale_right(t_list *ct, char *data, int c);
+int				ft_backtrack(t_list *new, int i, char *carre);
 int				main(int ac, char **av);
 int				ft_decale_up(t_list *ct, char *data, int c);
 int				ft_decale_left(t_list *ct, char *data, int c);
 char			*ft_set_carre(char *s, int n, int size);
 char			*ft_strdup(char *s);
 char			*ft_do_it(t_list *new);
-char			*ft_backtrack(t_list *new, int i, char *carre, t_list *begin);
 t_list			*ft_verif_lst(t_list *piece, t_list *tmp, char *str);
 t_list			*ft_lst_split(t_list *new, char *str);
 t_list			*ft_lstnew(char *data, int i);

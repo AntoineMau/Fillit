@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 14:57:34 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/04 09:11:20 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/04 12:11:14 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ char			*ft_do_it(t_list *new)
 	if (!(carre = (char*)malloc(sizeof(char) * ((2 + 1) * 2 + 1))))
 		return (NULL);
 	carre = ft_set_carre(carre, (2 + 1) * 2, 2 + 1);
-	carre = ft_backtrack(new, 2, carre, begin);
+	ft_backtrack(new, 2, carre);
 	return (carre);
 }

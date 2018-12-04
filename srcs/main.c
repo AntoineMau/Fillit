@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 11:24:29 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/03 16:29:09 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/04 12:03:23 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int		main(int ac, char **av)
 	}
 	free(tmp);
 	finish = ft_do_it(new);
+	dprintf(1, "carre = \n%s\n", finish);
 	return (0);
 }
