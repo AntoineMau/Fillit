@@ -6,12 +6,11 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 11:24:29 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/04 12:03:23 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/05 17:58:37 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
-#include <stdio.h>
 
 int		main(int ac, char **av)
 {
@@ -34,6 +33,6 @@ int		main(int ac, char **av)
 	}
 	free(tmp);
 	finish = ft_do_it(new);
-	dprintf(1, "carre = \n%s\n", finish);
+	write(1, finish, ft_strlen(finish));
 	return (0);
 }

@@ -6,12 +6,11 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 01:29:14 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/05 16:44:19 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/05 18:10:19 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
-#include <stdio.h>
 
 int		ft_len(char *data)
 {
@@ -90,26 +89,23 @@ int		ft_placement(t_list *new, char *carre)
 	return (0);
 }
 
-int		ft_backtrack(t_list *new, int i, char *carre)
+int		ft_backtrack(t_list *new, int i, char *carre, char *finish[1])
 {
-	int j;
-
-	j = 0;
-	dprintf(1, "carre debut bactrack x :\n%s\n", carre);
 	if (new == NULL)
+	{
+		finish[0] = ft_strdup(carre);
 		return (1);
-	dprintf(1, "data :\n%s\npos : %d %d %d %d\n", new->data, new->pos1, new->pos2, new->pos3, new->pos4);
+	}
 	if (ft_conversion(new, i))
 	{
-		dprintf(1, "data apres conv :\n%s\npos : %d %d %d %d\n", new->data, new->pos1, new->pos2, new->pos3, new->pos4);
 		while (1)
 		{
 			if (ft_placement(new, carre))
 			{
-				if ((ft_backtrack(new->next, i, carre)))
+				if ((ft_backtrack(new->next, i, carre, finish)))
 					return (1);
 			}
-			else if (!(ft_decale_right(new, new->data, 'A' + new->letter, i)))
+			if (!(ft_decale_right(new, new->data, 'A' + new->letter, i)))
 			{
 				if (!(ft_decale_down(new, new->data, 'A' + new->letter, i)))
 				{
@@ -121,7 +117,6 @@ int		ft_backtrack(t_list *new, int i, char *carre)
 				while (ft_decale_left(new, new->data, 'A' + new->letter, i))
 					;
 			}
-			j++;
 		}
 	}
 	if (new->letter == 0)
@@ -131,7 +126,7 @@ int		ft_backtrack(t_list *new, int i, char *carre)
 		if (!(carre = (char*)malloc(sizeof(char) * ((i + 1) * i + 1))))
 			return (0);
 		carre = ft_set_carre(carre, (i + 1) * i, i + 1);
-		if ((ft_backtrack(new, i, carre)))
+		if ((ft_backtrack(new, i, carre, finish)))
 			return (1);
 	}
 	return (0);

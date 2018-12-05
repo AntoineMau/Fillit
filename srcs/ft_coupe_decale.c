@@ -6,12 +6,11 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 11:36:40 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/05 15:08:40 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/05 17:34:57 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
-#include <stdio.h>
 
 void	pos_hash(t_list *count, char *data)
 {

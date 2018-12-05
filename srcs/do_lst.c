@@ -6,13 +6,11 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:15:31 by judumay           #+#    #+#             */
-/*   Updated: 2018/11/30 10:58:19 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/05 17:59:14 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
-
-#include <stdio.h>
 
 t_list	*ft_lstnew(char *data, int i)
 {

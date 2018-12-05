@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_verif.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:12:07 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/11/29 17:28:37 by anmauffr         ###   ########.fr       */
+/*   Updated: 2018/12/05 17:58:41 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
-
-#include <stdio.h>
 
 int		ft_check_neib(t_list *new)
 {

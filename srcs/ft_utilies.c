@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 13:45:56 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/03 11:49:33 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/05 18:00:24 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	ft_putendl(char const *s)
 {
 	int		i;
 
-	write(1, "\n", 1);
 	i = 0;
 	while (s[i])
 		i++;
@@ -70,18 +69,4 @@ char	*ft_strdup(char *s1)
 		j++;
 	}
 	return (str);
-}
-
-int		ft_lstlen(t_list *new)
-{
-	int		len;
-	t_list	*elem;
-
-	if (!new)
-		return (0);
-	len = 0;
-	elem = new;
-	while ((len++) && elem)
-		elem = elem->next;
-	return (len);
 }
