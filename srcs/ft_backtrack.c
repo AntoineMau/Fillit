@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 01:29:14 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/05 18:10:19 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/05 18:22:42 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,16 @@ int		ft_placement(t_list *new, char *carre)
 	return (0);
 }
 
+void	ft_clean(char c, char *carre)
+{
+	int i;
+
+	i = -1;
+	while (carre[++i])
+		if (carre[i] == c)
+			carre[i] = '.';
+}
+
 int		ft_backtrack(t_list *new, int i, char *carre, char *finish[1])
 {
 	if (new == NULL)
@@ -102,8 +112,9 @@ int		ft_backtrack(t_list *new, int i, char *carre, char *finish[1])
 		{
 			if (ft_placement(new, carre))
 			{
-				if ((ft_backtrack(new->next, i, carre, finish)))
+				if (ft_backtrack(new->next, i, carre, finish))
 					return (1);
+				ft_clean(new->letter + 'A', carre);
 			}
 			if (!(ft_decale_right(new, new->data, 'A' + new->letter, i)))
 			{

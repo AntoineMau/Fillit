@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 14:57:34 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/05 17:59:19 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/05 18:26:02 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char			*ft_do_it(t_list *new)
 	begin = new;
 	while (new)
 	{
-		if(ft_decale_up(new, new->data, c, 4)
+		while(ft_decale_up(new, new->data, c, 4)
 		|| ft_decale_left(new, new->data, c, 4))
 			;
 		c++;
