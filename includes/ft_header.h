@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:21:14 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/12/04 12:11:02 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/05 15:14:51 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ int				ft_check_neib(t_list *new);
 int				ft_strlen(char *str);
 int				ft_lstlen(t_list *new);
 int				ft_change(t_list *ct, char *data, int n, char c);
-int				ft_decale_down(t_list *ct, char *data, int c);
-int				ft_decale_right(t_list *ct, char *data, int c);
-int				ft_backtrack(t_list *new, int i, char *carre);
 int				main(int ac, char **av);
-int				ft_decale_up(t_list *ct, char *data, int c);
-int				ft_decale_left(t_list *ct, char *data, int c);
+int				ft_decale_up(t_list *ct, char *data, int c, int size);
+int				ft_decale_left(t_list *ct, char *data, int c, int size);
+int				ft_decale_down(t_list *ct, char *data, int c, int size);
+int				ft_decale_right(t_list *ct, char *data, int c, int size);
+int				ft_backtrack(t_list *new, int i, char *carre);
 char			*ft_set_carre(char *s, int n, int size);
 char			*ft_strdup(char *s);
 char			*ft_do_it(t_list *new);

@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 11:36:40 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/03 16:52:01 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/05 15:08:40 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	pos_hash(t_list *count, char *data)
 	count->pos4 = -1;
 	while (j < 4 && data[i])
 	{
-		if (data[i] >= 'A' && data[i] <= 'Z')
+		if (data[i] != '.' && data[i] != '\n')
 			j++;
 		(j == 1 && count->pos1 == -1) ? count->pos1 = i : j;
 		(j == 2 && count->pos2 == -1) ? count->pos2 = i : j;
@@ -36,28 +36,28 @@ void	pos_hash(t_list *count, char *data)
 	}
 }
 
-int		ft_decale_up(t_list *ct, char *data, int c)
+int		ft_decale_up(t_list *ct, char *data, int c, int size)
 {
 	int		cnt;
 
 	cnt = 0;
 	pos_hash(ct, data);
-	if (ct->pos1 > 4)
+	if (ct->pos1 > size)
 	{
-		ft_change(ct, data, 5, 'A' + c);
+		ft_change(ct, data, size + 1, 'A' + c);
 		return (1);
 	}
 	return (0);
 }
 
-int		ft_decale_left(t_list *ct, char *data, int c)
+int		ft_decale_left(t_list *ct, char *data, int c, int size)
 {
 	int		cnt;
 
 	cnt = 0;
 	pos_hash(ct, data);
-	if (ct->pos1 % 5 > 0 && ct->pos2 % 5 > 0 && ct->pos3 % 5 > 0
-	&& ct->pos4 % 5 > 0)
+	if (ct->pos1 % (size + 1) > 0 && ct->pos2 % (size + 1) > 0 && ct->pos3 % (size + 1) > 0
+	&& ct->pos4 % (size + 1) > 0)
 	{
 		ft_change(ct, data, 1, 'A' + c);
 		return (1);
@@ -65,28 +65,28 @@ int		ft_decale_left(t_list *ct, char *data, int c)
 	return (0);
 }
 
-int		ft_decale_down(t_list *ct, char *data, int c)
+int		ft_decale_down(t_list *ct, char *data, int c, int size)
 {
 	int		cnt;
 
 	cnt = 0;
 	pos_hash(ct, data);
-	if (ct->pos1 < 14)
+	if (ct->pos4 < ((size * (size + 1)) - (size + 1)))
 	{
-		ft_change(ct, data, -5, 'A' + c);
+		ft_change(ct, data, -(size + 1), 'A' + c);
 		return (1);
 	}
 	return (0);
 }
 
-int		ft_decale_right(t_list *ct, char *data, int c)
+int		ft_decale_right(t_list *ct, char *data, int c, int size)
 {
 	int		cnt;
 
 	cnt = 0;
 	pos_hash(ct, data);
-	if (ct->pos1 % 5 < 3 && ct->pos2 % 5 < 3 && ct->pos3 % 5 < 3
-	&& ct->pos4 % 5 < 3)
+	if (ct->pos1 % (size + 1) < (size - 1) && ct->pos2 % (size + 1) < (size - 1) &&
+	ct->pos3 % (size + 1) < (size - 1) && ct->pos4 % (size + 1) < (size - 1))
 	{
 		ft_change(ct, data, -1, 'A' + c);
 		return (1);
