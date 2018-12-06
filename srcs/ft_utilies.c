@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 13:45:56 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/05 18:00:24 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 14:45:55 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_strdup(char *s1)
 	j = 0;
 	while (s1[i] != '\0')
 		i++;
-	if (!(str = (char*)malloc(sizeof(char) * (i + 1))))
+	if (!(str = (char*)malloc(sizeof(str) * (i))))
 		return (NULL);
 	while (j <= i)
 	{

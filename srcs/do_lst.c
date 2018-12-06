@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:15:31 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/05 17:59:14 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 14:25:26 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ t_list	*ft_lstnew(char *data, int i)
 
 void	ft_lstnext(t_list **begin, char *data, int k)
 {
-	*begin = ft_lstnew(data, k);
+	if (!(*begin = ft_lstnew(data, k)))
+		free(begin);
 }
 
 t_list	*ft_lst_split(t_list *new, char *str)

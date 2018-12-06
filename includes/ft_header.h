@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:21:14 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/12/06 13:35:03 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 14:02:22 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ int				ft_backtrack(t_list *new, int i, char *carre, char *finish[1]);
 int				ft_len(char *data);
 char			*ft_set_carre(char *s, int n, int size);
 char			*ft_strdup(char *s);
-char			*ft_do_it(t_list *new);
 char			*ft_set_carre(char *s, int n, int size);
 t_list			*ft_verif_lst(t_list *piece, t_list *tmp, char *str);
 t_list			*ft_lst_split(t_list *new, char *str);
 t_list			*ft_lstnew(char *data, int i);
+void			ft_do_it(t_list *new, char *finish[1]);
 
 #endif

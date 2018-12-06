@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:12:07 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/12/06 13:34:38 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 14:48:38 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int		ft_check_neib(t_list *new)
 		while (++i < 20)
 			if (tmp[i] >= 'A' && tmp[i] <= 'Z')
 			{
-				tmp[i + 1] >= 'A' && tmp[i + 1] <= 'Z' ? voi++ : voi;
-				tmp[i - 1] >= 'A' && tmp[i - 1] <= 'Z' ? voi++ : voi;
+				i < 20 && tmp[i + 1] >= 'A' && tmp[i + 1] <= 'Z' ? voi++ : voi;
+				i > 0 && tmp[i - 1] >= 'A' && tmp[i - 1] <= 'Z' ? voi++ : voi;
 				i < 15 && tmp[i + 5] >= 'A' && tmp[i + 5] <= 'Z' ? voi++ : voi;
 				i > 4 && tmp[i - 5] >= 'A' && tmp[i - 5] <= 'Z' ? voi++ : voi;
 			}

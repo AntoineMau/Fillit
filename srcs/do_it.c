@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 14:57:34 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/06 10:14:23 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 14:29:12 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,11 @@ int		ft_change(t_list *ct, char *data, int n, char c)
 	return (1);
 }
 
-char	*ft_do_it(t_list *new)
+void	ft_do_it(t_list *new, char *finish[1])
 {
 	int		c;
 	char	*carre;
 	t_list	*begin;
-	char	*finish[1];
 
 	c = 0;
 	new->letter = 0;
@@ -80,8 +79,7 @@ char	*ft_do_it(t_list *new)
 	new = begin;
 	c = 2;
 	if (!(carre = (char*)malloc(sizeof(char) * ((c + 1) * c + 1))))
-		return (NULL);
+		return ;
 	carre = ft_set_carre(carre, (c + 1) * c, c + 1);
 	ft_backtrack(new, c, carre, finish);
-	return (finish[0]);
 }

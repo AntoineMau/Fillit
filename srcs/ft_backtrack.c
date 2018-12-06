@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 01:29:14 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/06 10:37:06 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 14:18:34 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,30 @@
 
 int		ft_conversion(t_list *new, int size)
 {
-	char	*data;
+	char	*dat;
 	int		op;
 
 	op = ft_len(new->data);
-	if (!(data = (char*)malloc(sizeof(char) * ((size + 1) * size + 1))))
+	if (!(dat = (char*)malloc(sizeof(char) * ((size + 1) * size + 1))))
 		return (0);
 	if (size <= new->pos1 / op || size <= new->pos1 % op || size <= new->pos2 /
 	op || size <= new->pos2 % op || size <= new->pos3 / op || size <= new->pos3
 	% op || size <= new->pos4 / op || size <= new->pos4 % op)
+	{
+		free(dat);
 		return (0);
-	data = ft_set_carre(data, (size + 1) * size, size + 1);
+	}
+	dat = ft_set_carre(dat, (size + 1) * size, size + 1);
 	new->pos1 = (size + 1) * (new->pos1 / op) + new->pos1 % op;
 	new->pos2 = (size + 1) * (new->pos2 / op) + new->pos2 % op;
 	new->pos3 = (size + 1) * (new->pos3 / op) + new->pos3 % op;
 	new->pos4 = (size + 1) * (new->pos4 / op) + new->pos4 % op;
-	data[new->pos1] = 'A' + new->letter;
-	data[new->pos2] = 'A' + new->letter;
-	data[new->pos3] = 'A' + new->letter;
-	data[new->pos4] = 'A' + new->letter;
-	new->data = data;
+	dat[new->pos1] = 'A' + new->letter;
+	dat[new->pos2] = 'A' + new->letter;
+	dat[new->pos3] = 'A' + new->letter;
+	dat[new->pos4] = 'A' + new->letter;
+	free(new->data);
+	new->data = dat;
 	return (1);
 }
 
@@ -81,7 +85,10 @@ int		ft_decale(t_list *new, int i)
 int		ft_backtrack(t_list *new, int i, char *carre, char *finish[1])
 {
 	if (new == NULL && (finish[0] = ft_strdup(carre)))
+	{
+		free(carre);
 		return (1);
+	}
 	if (ft_conversion(new, i))
 		while (1)
 		{
