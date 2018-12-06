@@ -6,11 +6,12 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 14:57:34 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/06 14:53:49 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 15:37:19 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
+#include <stdlib.h>
 
 char	*ft_set_carre(char *s, int n, int size)
 {
@@ -58,28 +59,28 @@ int		ft_change(t_list *ct, char *data, int n, char c)
 	return (1);
 }
 
-void	ft_do_it(t_list *new, char *finish[1])
+void	ft_do_it(t_list *elem, char *finish[1])
 {
 	int		c;
 	char	*carre;
 	t_list	*begin;
 
 	c = 0;
-	new->letter = 0;
-	begin = new;
-	while (new)
+	elem->letter = 0;
+	begin = elem;
+	while (elem)
 	{
-		while (ft_decale_up(new, new->data, c, 4)
-		|| ft_decale_left(new, new->data, c, 4))
+		while (ft_decale_up(elem, elem->data, c, 4)
+		|| ft_decale_left(elem, elem->data, c, 4))
 			;
 		c++;
-		new->letter = c - 1;
-		new = new->next;
+		elem->letter = c - 1;
+		elem = elem->next;
 	}
-	new = begin;
+	elem = begin;
 	c = 2;
 	if (!(carre = (char*)malloc(sizeof(char) * ((c + 1) * c + 1))))
 		return ;
 	carre = ft_set_carre(carre, (c + 1) * c, c + 1);
-	ft_backtrack(new, c, carre, finish);
+	ft_backtrack(elem, c, carre, finish);
 }

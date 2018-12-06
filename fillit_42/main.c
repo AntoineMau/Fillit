@@ -6,20 +6,22 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 11:24:29 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/06 15:10:51 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 15:43:49 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-void	ft_free(t_list *new, char *finish[1])
+void	ft_free(t_list *elem, char *finish[1])
 {
-	if (new->next)
-		ft_free(new->next, finish);
-	free(new->data);
-	new->data = NULL;
-	new->next = NULL;
-	free(new);
+	if (elem->next)
+		ft_free(elem->next, finish);
+	free(elem->data);
+	elem->data = NULL;
+	elem->next = NULL;
+	free(elem);
 	if (*finish)
 		free(*finish);
 }
@@ -29,11 +31,11 @@ int		main(int ac, char **av)
 	char	str[BUFF_SIZE + 1];
 	char	*finish[1];
 	t_count	piece;
-	t_list	*new;
+	t_list	*elem;
 	t_list	*tmp;
 
 	tmp = NULL;
-	new = NULL;
+	elem = NULL;
 	piece.point = 0;
 	if (!(piece.n = 0) && ac != 2)
 	{
@@ -41,14 +43,14 @@ int		main(int ac, char **av)
 		return (-1);
 	}
 	if (!(piece.hashtag = 0) && ((ft_verif_args(av, str, &piece) == -1) ||
-	!(new = ft_verif_lst(new, tmp, str))))
+	!(elem = ft_verif_lst(elem, tmp, str))))
 	{
 		ft_putendl("error");
 		return (0);
 	}
 	free(tmp);
-	ft_do_it(new, finish);
+	ft_do_it(elem, finish);
 	write(1, finish[0], ft_strlen(finish[0]));
-	ft_free(new, finish);
+	ft_free(elem, finish);
 	return (0);
 }

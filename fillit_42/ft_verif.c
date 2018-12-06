@@ -6,21 +6,26 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:12:07 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/12/06 14:48:38 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 15:43:35 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <unistd.h>
+#include <fcntl.h>
 
-int		ft_check_neib(t_list *new)
+int		ft_check_neib(t_list *elem)
 {
 	int		voi;
 	int		i;
 	char	*tmp;
 
-	while (new)
+	while (elem)
 	{
-		tmp = ft_strdup(new->data);
+		tmp = ft_strdup(elem->data);
 		voi = 0;
 		i = -1;
 		while (++i < 20)
@@ -34,7 +39,7 @@ int		ft_check_neib(t_list *new)
 		free(tmp);
 		if (voi != 6 && voi != 8)
 			return (-1);
-		new = new->next;
+		elem = elem->next;
 	}
 	return (1);
 }
@@ -93,6 +98,8 @@ int		ft_verif_args(char **av, char *buf, t_count *count)
 	ret = read(fd, buf, BUFF_SIZE);
 	buf[ret] = '\0';
 	if (ft_check_str(buf, count) == -1)
+		return (-1);
+	if (close(fd) < 0)
 		return (-1);
 	return (0);
 }

@@ -6,29 +6,30 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:15:31 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/06 14:25:26 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 15:37:40 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
+#include <stdlib.h>
 
 t_list	*ft_lstnew(char *data, int i)
 {
-	t_list	*new;
+	t_list	*elem;
 
-	if (!(new = (t_list*)malloc(sizeof(t_list) * 1)))
+	if (!(elem = (t_list*)malloc(sizeof(t_list) * 1)))
 		return (NULL);
 	if (!(data))
-		new->data = NULL;
+		elem->data = NULL;
 	else
 	{
-		if (!(new->data = (char*)malloc(sizeof(char) * 21)))
+		if (!(elem->data = (char*)malloc(sizeof(char) * 21)))
 			return (NULL);
-		ft_memcpy(new->data, data, 20, i);
-		new->data[20] = '\0';
+		ft_memcpy(elem->data, data, 20, i);
+		elem->data[20] = '\0';
 	}
-	new->next = NULL;
-	return (new);
+	elem->next = NULL;
+	return (elem);
 }
 
 void	ft_lstnext(t_list **begin, char *data, int k)
@@ -37,7 +38,7 @@ void	ft_lstnext(t_list **begin, char *data, int k)
 		free(begin);
 }
 
-t_list	*ft_lst_split(t_list *new, char *str)
+t_list	*ft_lst_split(t_list *elem, char *str)
 {
 	int		i;
 	int		k;
@@ -45,14 +46,14 @@ t_list	*ft_lst_split(t_list *new, char *str)
 
 	i = 0;
 	k = 0;
-	ft_lstnext(&new, &str[i], k++);
+	ft_lstnext(&elem, &str[i], k++);
 	i += 21;
-	begin = new;
+	begin = elem;
 	while (i < ft_strlen(str))
 	{
-		ft_lstnext(&new->next, &str[i], k++);
+		ft_lstnext(&elem->next, &str[i], k++);
 		i += 21;
-		new = new->next;
+		elem = elem->next;
 	}
 	return (begin);
 }

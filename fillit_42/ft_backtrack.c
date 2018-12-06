@@ -6,11 +6,12 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 01:29:14 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/06 15:00:24 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 15:38:31 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
+#include <stdlib.h>
 
 int		ft_conversion(t_list *new, int size)
 {
