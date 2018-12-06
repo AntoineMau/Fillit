@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 11:36:40 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/05 17:34:57 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 10:00:24 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int		ft_decale_left(t_list *ct, char *data, int c, int size)
 
 	cnt = 0;
 	pos_hash(ct, data);
-	if (ct->pos1 % (size + 1) > 0 && ct->pos2 % (size + 1) > 0 && ct->pos3 % (size + 1) > 0
-	&& ct->pos4 % (size + 1) > 0)
+	if (ct->pos1 % (size + 1) > 0 && ct->pos2 % (size + 1) > 0
+	&& ct->pos3 % (size + 1) > 0 && ct->pos4 % (size + 1) > 0)
 	{
 		ft_change(ct, data, 1, 'A' + c);
 		return (1);
@@ -84,8 +84,9 @@ int		ft_decale_right(t_list *ct, char *data, int c, int size)
 
 	cnt = 0;
 	pos_hash(ct, data);
-	if (ct->pos1 % (size + 1) < (size - 1) && ct->pos2 % (size + 1) < (size - 1) &&
-	ct->pos3 % (size + 1) < (size - 1) && ct->pos4 % (size + 1) < (size - 1))
+	if (ct->pos1 % (size + 1) < (size - 1) && ct->pos2 % (size + 1) <
+	(size - 1) && ct->pos3 % (size + 1) < (size - 1) && ct->pos4 % (size + 1)
+	< (size - 1))
 	{
 		ft_change(ct, data, -1, 'A' + c);
 		return (1);

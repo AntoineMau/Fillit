@@ -6,13 +6,42 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 14:57:34 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/05 18:26:02 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 10:14:23 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
 
-int				ft_change(t_list *ct, char *data, int n, char c)
+char	*ft_set_carre(char *s, int n, int size)
+{
+	int		i;
+	char	*str;
+
+	i = -1;
+	str = s;
+	while (++i < n)
+	{
+		if (i % size == size - 1)
+			str[i] = '\n';
+		else
+			str[i] = '.';
+	}
+	str[i] = '\0';
+	s = str;
+	return (s);
+}
+
+int		ft_len(char *data)
+{
+	int i;
+
+	i = 0;
+	while (data[i] != '\n')
+		i++;
+	return (i + 1);
+}
+
+int		ft_change(t_list *ct, char *data, int n, char c)
 {
 	data[ct->pos1] = '.';
 	data[ct->pos2] = '.';
@@ -29,10 +58,10 @@ int				ft_change(t_list *ct, char *data, int n, char c)
 	return (1);
 }
 
-char			*ft_do_it(t_list *new)
+char	*ft_do_it(t_list *new)
 {
 	int		c;
-	char	*carre = NULL;
+	char	*carre;
 	t_list	*begin;
 	char	*finish[1];
 
@@ -41,7 +70,7 @@ char			*ft_do_it(t_list *new)
 	begin = new;
 	while (new)
 	{
-		while(ft_decale_up(new, new->data, c, 4)
+		while (ft_decale_up(new, new->data, c, 4)
 		|| ft_decale_left(new, new->data, c, 4))
 			;
 		c++;

@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:12:07 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/12/05 17:58:41 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 10:31:27 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int		ft_check_neib(t_list *new)
 
 int		ft_check_n(char *str, int i, int n)
 {
-	if (str[i - 1] == '.' || str[i - 1] == '#')
-		return (1);
+	if (n % 5 == 4 && str[i - 1] != '\n')
+		return (0);
 	if (n % 5 == 4 && n > 5)
 		n++;
 	else if (n % 5 == 4 && n < 5)
@@ -50,7 +50,9 @@ int		ft_check_n(char *str, int i, int n)
 	if (n % 5 == 0 && str[i - 1] == '\n' && (str[i + 1] == '.' ||
 	str[i + 1] == '#' || str[i + 1] == '\0'))
 		return (1);
-	return (-1);
+	if ((str[i - 1] == '.' || str[i - 1] == '#'))
+		return (1);
+	return (0);
 }
 
 int		ft_check_str(char *str, t_count *count)
@@ -65,7 +67,7 @@ int		ft_check_str(char *str, t_count *count)
 			count->point++;
 		if (str[i] == '\n')
 		{
-			if (ft_check_n(str, i, count->n) == -1)
+			if (!(ft_check_n(str, i, count->n)))
 				return (-1);
 			count->n++;
 		}

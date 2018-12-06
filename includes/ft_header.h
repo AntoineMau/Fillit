@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:21:14 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/12/05 17:57:40 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 10:14:39 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-
 void			ft_putendl(char const *s);
 void			ft_lstnext(t_list **begin, char *data, int k);
 void			pos_hash(t_list *count, char *data);
@@ -57,9 +56,11 @@ int				ft_decale_left(t_list *ct, char *data, int c, int size);
 int				ft_decale_down(t_list *ct, char *data, int c, int size);
 int				ft_decale_right(t_list *ct, char *data, int c, int size);
 int				ft_backtrack(t_list *new, int i, char *carre, char *finish[1]);
+int				ft_len(char *data);
 char			*ft_set_carre(char *s, int n, int size);
 char			*ft_strdup(char *s);
 char			*ft_do_it(t_list *new);
+char			*ft_set_carre(char *s, int n, int size);
 t_list			*ft_verif_lst(t_list *piece, t_list *tmp, char *str);
 t_list			*ft_lst_split(t_list *new, char *str);
 t_list			*ft_lstnew(char *data, int i);
