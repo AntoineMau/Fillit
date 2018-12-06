@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 01:29:14 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/06 14:18:34 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 15:00:24 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		ft_placement(t_list *new, char *carre)
 	return (0);
 }
 
-void	ft_clean(char c, char *carre)
+int		ft_clean(char c, char *carre)
 {
 	int i;
 
@@ -63,6 +63,7 @@ void	ft_clean(char c, char *carre)
 	while (carre[++i])
 		if (carre[i] == c)
 			carre[i] = '.';
+	return (1);
 }
 
 int		ft_decale(t_list *new, int i)
@@ -85,20 +86,16 @@ int		ft_decale(t_list *new, int i)
 int		ft_backtrack(t_list *new, int i, char *carre, char *finish[1])
 {
 	if (new == NULL && (finish[0] = ft_strdup(carre)))
-	{
 		free(carre);
+	if (finish[0])
 		return (1);
-	}
 	if (ft_conversion(new, i))
 		while (1)
 		{
 			if (ft_placement(new, carre))
-			{
 				if (ft_backtrack(new->next, i, carre, finish))
 					return (1);
-				ft_clean(new->letter + 'A', carre);
-			}
-			if (!ft_decale(new, i))
+			if (ft_clean(new->letter + 'A', carre) && (!ft_decale(new, i)))
 				break ;
 		}
 	if (new->letter == 0 && (++i))

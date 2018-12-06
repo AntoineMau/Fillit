@@ -6,20 +6,22 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 11:24:29 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/06 14:51:23 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 15:10:51 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_header.h>
 
-void	ft_free(t_list *new)
+void	ft_free(t_list *new, char *finish[1])
 {
 	if (new->next)
-		ft_free(new->next);
+		ft_free(new->next, finish);
 	free(new->data);
 	new->data = NULL;
 	new->next = NULL;
 	free(new);
+	if (*finish)
+		free(*finish);
 }
 
 int		main(int ac, char **av)
@@ -30,18 +32,16 @@ int		main(int ac, char **av)
 	t_list	*new;
 	t_list	*tmp;
 
-	new = NULL;
 	tmp = NULL;
-	piece.hashtag = 0;
-	piece.n = 0;
+	new = NULL;
 	piece.point = 0;
-	if (ac != 2)
+	if (!(piece.n = 0) && ac != 2)
 	{
 		ft_putendl("usage: ./fillit file");
 		return (-1);
 	}
-	if ((ft_verif_args(av, str, &piece) == -1) ||
-	!(new = ft_verif_lst(new, tmp, str)))
+	if (!(piece.hashtag = 0) && ((ft_verif_args(av, str, &piece) == -1) ||
+	!(new = ft_verif_lst(new, tmp, str))))
 	{
 		ft_putendl("error");
 		return (0);
@@ -49,7 +49,6 @@ int		main(int ac, char **av)
 	free(tmp);
 	ft_do_it(new, finish);
 	write(1, finish[0], ft_strlen(finish[0]));
-	ft_free(new);
-	free(*finish);
+	ft_free(new, finish);
 	return (0);
 }
