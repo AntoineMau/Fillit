@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:12:07 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/12/06 10:31:27 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 13:34:38 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,11 @@ int		ft_check_str(char *str, t_count *count)
 	return (1);
 }
 
-int		ft_verif_args(int ac, char **av, char *buf, t_count *count)
+int		ft_verif_args(char **av, char *buf, t_count *count)
 {
 	int		fd;
 	int		ret;
 
-	if (ac != 2)
-		return (-1);
 	if ((fd = open(av[1], O_RDONLY)) < 0)
 		return (-1);
 	ret = read(fd, buf, BUFF_SIZE);

@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 11:24:29 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/06 09:50:15 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 13:34:23 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,16 @@ int		main(int ac, char **av)
 	piece.n = 0;
 	piece.hashtag = 0;
 	piece.point = 0;
-	if ((ft_verif_args(ac, av, str, &piece) == -1) ||
+	if (ac != 2)
+	{
+		ft_putendl("usage: ./fillit file");
+		return (-1);
+	}
+	if ((ft_verif_args(av, str, &piece) == -1) ||
 	!(new = ft_verif_lst(new, tmp, str)))
 	{
 		ft_putendl("error");
-		return (-1);
+		return (0);
 	}
 	free(tmp);
 	finish = ft_do_it(new);

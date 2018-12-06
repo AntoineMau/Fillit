@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:21:14 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/12/06 10:14:39 by judumay          ###   ########.fr       */
+/*   Updated: 2018/12/06 13:35:03 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			ft_putendl(char const *s);
 void			ft_lstnext(t_list **begin, char *data, int k);
 void			pos_hash(t_list *count, char *data);
 void			*ft_memcpy(char *dst, char *src, size_t n, int k);
-int				ft_verif_args(int ac, char **av, char *buf, t_count *count);
+int				ft_verif_args(char **av, char *buf, t_count *count);
 int				ft_check_n(char *str, int i, int n);
 int				ft_check_str(char *str, t_count *count);
 int				ft_check_neib(t_list *new);
