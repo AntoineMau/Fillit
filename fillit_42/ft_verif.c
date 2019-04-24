@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_verif.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:12:07 by anmauffr          #+#    #+#             */
-/*   Updated: 2018/12/06 15:43:35 by judumay          ###   ########.fr       */
+/*   Updated: 2019/04/24 17:47:57 by anmauffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int		ft_check_n(char *str, int i, int n)
 		n++;
 	else if (n % 5 == 4 && n < 5)
 		return (1);
-	if (n % 5 == 0 && str[i - 1] == '\n' && (str[i + 1] == '.' ||
-	str[i + 1] == '#' || str[i + 1] == '\0'))
+	if (n % 5 == 0 && str[i - 1] == '\n' && (str[i + 1] == '.'
+		|| str[i + 1] == '#' || str[i + 1] == '\0'))
 		return (1);
 	if ((str[i - 1] == '.' || str[i - 1] == '#'))
 		return (1);
@@ -82,8 +82,9 @@ int		ft_check_str(char *str, t_count *count)
 			return (-1);
 		i++;
 	}
-	if (count->n > 129 || count->n % 5 != 4 || count->point > 312 ||
-	count->point % 12 != 0 || count->hashtag > 104 || count->hashtag % 4 != 0)
+	if (count->n > 129 || count->n % 5 != 4 || count->point > 312
+		|| count->point % 12 != 0 || count->hashtag > 104
+		|| count->hashtag % 4 != 0)
 		return (-1);
 	return (1);
 }

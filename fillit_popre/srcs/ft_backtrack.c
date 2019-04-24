@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_backtrack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 01:29:14 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/06 15:35:48 by judumay          ###   ########.fr       */
+/*   Updated: 2019/04/24 17:48:39 by anmauffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ int		ft_conversion(t_list *elem, int size)
 	op = ft_len(elem->data);
 	if (!(dat = (char*)malloc(sizeof(char) * ((size + 1) * size + 1))))
 		return (0);
-	if (size <= elem->pos1 / op || size <= elem->pos1 % op || size <= elem->pos2 /
-	op || size <= elem->pos2 % op || size <= elem->pos3 / op || size <= elem->pos3
-	% op || size <= elem->pos4 / op || size <= elem->pos4 % op)
+	if (size <= elem->pos1 / op || size <= elem->pos1 % op
+		|| size <= elem->pos2 / op || size <= elem->pos2 % op
+		|| size <= elem->pos3 / op || size <= elem->pos3 % op
+		|| size <= elem->pos4 / op || size <= elem->pos4 % op)
 	{
 		free(dat);
 		return (0);
@@ -43,8 +44,8 @@ int		ft_conversion(t_list *elem, int size)
 
 int		ft_placement(t_list *elem, char *carre)
 {
-	if (carre[elem->pos1] == '.' && carre[elem->pos2] == '.' &&
-	carre[elem->pos3] == '.' && carre[elem->pos4] == '.')
+	if (carre[elem->pos1] == '.' && carre[elem->pos2] == '.'
+		&& carre[elem->pos3] == '.' && carre[elem->pos4] == '.')
 	{
 		carre[elem->pos1] = elem->letter + 'A';
 		carre[elem->pos2] = elem->letter + 'A';

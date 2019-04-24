@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 11:24:29 by judumay           #+#    #+#             */
-/*   Updated: 2018/12/06 15:35:48 by judumay          ###   ########.fr       */
+/*   Updated: 2019/04/24 18:09:46 by anmauffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int		main(int ac, char **av)
 		ft_putendl("usage: ./fillit file");
 		return (-1);
 	}
-	if (!(piece.hashtag = 0) && ((ft_verif_args(av, str, &piece) == -1) ||
-	!(elem = ft_verif_lst(elem, tmp, str))))
+	if (!(piece.hashtag = 0) && ((ft_verif_args(av, str, &piece) == -1)
+		|| !(elem = ft_verif_lst(elem, tmp, str))))
 	{
 		ft_putendl("error");
 		return (0);
